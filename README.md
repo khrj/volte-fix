@@ -1,5 +1,5 @@
 # VoLTE-Fix
-Fixes VoLTE on 32-bit GSI Treble Roms
+Fixes VoLTE on binder64 GSI Treble Roms
 
 # Usage
 ## Using install.sh
