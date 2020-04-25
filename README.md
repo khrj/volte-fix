@@ -9,4 +9,4 @@ Run
 ``./install.sh``
 
 ## Manually
-Copy the ims folder to /system/priv-app and copy android.hardware.telephony.ims.xml to /system/etc/permissions
+Copy the binder64/ims folder to /system/priv-app and copy android.hardware.telephony.ims.xml to /system/etc/permissions
