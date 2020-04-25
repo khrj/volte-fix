@@ -3,7 +3,7 @@ Fixes VoLTE on binder64 GSI Treble Roms
 
 # Usage
 ## Using install.sh
-If you're not rooted, boot into TWRP, and mount system as r/w
+> Note: If you're not rooted, boot into TWRP, and mount system as r/w
 
 Run
 ``./install.sh``
