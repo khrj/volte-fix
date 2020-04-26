@@ -10,7 +10,7 @@ Run
 
 ## Manually
 ### For a64 or arm64
-Copy the binder64/ims folder to /system/priv-app and copy android.hardware.telephony.ims.xml to /system/etc/permissions
+Copy the binder64/ims (don't copy the binder64 folder, only the ims folder inside it) folder to /system/priv-app and copy android.hardware.telephony.ims.xml to /system/etc/permissions
 
 ### For arm
-Copy the binder32/ims folder to /system/priv-app and copy android.hardware.telephony.ims.xml to /system/etc/permissions
+Copy the binder32/ims (don't copy the binder32 folder, only the ims folder inside it) folder to /system/priv-app and copy android.hardware.telephony.ims.xml to /system/etc/permissions
