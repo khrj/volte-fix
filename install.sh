@@ -15,4 +15,11 @@ adb shell setprop persist.dbg.allow_ims_off 1
 adb shell setprop persist.dbg.volte_avail_ovr 1
 adb shell setprop persist.dbg.vt_avail_ovr 1
 adb shell setprop persist.dbg.wfc_avail_ovr 1
-echo "REBOOT YOUR PHONE TWICE TO ACTIVATE VoLTE"
+adb shell setprop persist.sys.phh.ims.caf true
+
+read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/n)?" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	adb reboot
+fi
