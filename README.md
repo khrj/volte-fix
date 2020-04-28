@@ -2,11 +2,14 @@
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
 # Usage
-## Using install.sh (only for a64 and arm64 devices)
+## Using install.sh
 > Note: If you're not rooted, boot into TWRP, and mount system as r/w
 
 Run
-``./install.sh``
+
+``./install.sh 32`` if you're on a arm device
+
+``./install.sh 64`` if you're on a a64 or arm64 device
 
 ## Manually
 ### For a64 or arm64
