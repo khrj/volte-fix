@@ -1,7 +1,7 @@
 # VoLTE-Fix
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
-# Note: All scripts to be run via adb on a computer
+> ### Note: All scripts to be run via adb on a computer
 
 # Usage
 ## Using install.sh
