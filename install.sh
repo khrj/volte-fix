@@ -21,5 +21,5 @@ read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	adb reboot
+	adb reboot &
 fi
