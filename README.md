@@ -5,7 +5,7 @@ Fixes Qualcomm VoLTE on all GSI Treble Roms
 
 # Usage
 ## Using install.sh
-> Note: If you're not rooted, boot into TWRP, and mount system as r/w
+> Note: If you're not rooted, boot into TWRP, and mount system as r/w. Also keep in mind that some recoveries mount system as /system_root instead of /system. In that case, use install-system_root.sh
 
 Run
 
