@@ -1,3 +1,4 @@
+#!/bin/bash
 # Copyright 2020 Khushraj Rathod
 #
 # This file is part of VoLTE-Fix.
@@ -15,28 +16,27 @@
 # You should have received a copy of the GNU General Public License
 # along with VoLTE-Fix.  If not, see <https://www.gnu.org/licenses/>.
 
-set -e
-
-if [ “$1” != “32” ] && [ “$1” != “64” ]
+if [ "$1" != "32" ] && [ "$1" != "64" ]
 then
-	echo "Usage: ./install-system_root.sh (32|64)"
+	echo "Usage: ./install-local.sh (32|64)"
 	exit 1
 fi
 
-scriptdir=$(cd ./$(dirname $0)/; pwd)
-adb root
-adb remount
-adb push $scriptdir/binder${1}/ims /system_root/priv-app/
-adb push $scriptdir/android.hardware.telephony.ims.xml /system_root/etc/permissions
-adb shell setprop persist.dbg.allow_ims_off 1
-adb shell setprop persist.dbg.volte_avail_ovr 1
-adb shell setprop persist.dbg.vt_avail_ovr 1
-adb shell setprop persist.dbg.wfc_avail_ovr 1
-adb shell setprop persist.sys.phh.ims.caf true
-
+scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
+su <<EOF
+remount; mount -o remount,rw /; mount -o remount,rw /system
+mv "$scriptdir"/binder${1}/ims /system/priv-app/
+setprop persist.dbg.allow_ims_off 1
+setprop persist.dbg.volte_avail_ovr 1
+setprop persist.dbg.vt_avail_ovr 1
+setprop persist.dbg.wfc_avail_ovr 1
+setprop persist.sys.phh.ims.caf true
+EOF
 read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/n)?" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	adb reboot &
+	am broadcast android.intent.action.ACTION_SHUTDOWN
+  sleep 5
+  reboot
 fi
