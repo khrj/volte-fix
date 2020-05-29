@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/system/bin/sh
 # Copyright 2020 Khushraj Rathod
 #
 # This file is part of VoLTE-Fix.
@@ -24,11 +24,6 @@ fi
 
 scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
 su -c "sh $scriptdir/scripts/setprops-pushapks.sh $scriptdir $1"
-read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/n)?" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-	am broadcast android.intent.action.ACTION_SHUTDOWN
-  sleep 5
-  reboot
-fi
+am broadcast android.intent.action.ACTION_SHUTDOWN
+sleep 5
+reboot
