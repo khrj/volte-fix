@@ -23,15 +23,7 @@ then
 fi
 
 scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
-su <<EOF
-remount; mount -o remount,rw /; mount -o remount,rw /system
-mv "$scriptdir"/binder${1}/ims /system/priv-app/
-setprop persist.dbg.allow_ims_off 1
-setprop persist.dbg.volte_avail_ovr 1
-setprop persist.dbg.vt_avail_ovr 1
-setprop persist.dbg.wfc_avail_ovr 1
-setprop persist.sys.phh.ims.caf true
-EOF
+su -c "sh $scriptdir/scripts/setprops-pushapks.sh $scriptdir $1"
 read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/n)?" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
