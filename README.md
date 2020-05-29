@@ -11,17 +11,17 @@ Fixes Qualcomm VoLTE on all GSI Treble Roms
 
 Run
 
-``./install-adb.sh 32`` if you're on a arm device
+``sh ./install-adb.sh 32`` if you're on a arm device
 
-``./install-adb.sh 64`` if you're on a a64 or arm64 device
+``sh ./install-adb.sh 64`` if you're on a a64 or arm64 device
 
 ### Locally on a terminal emulator (untested)
 
 Run
 
-``./install-local.sh 32`` if you're on a arm device
+``sh ./install-local.sh 32`` if you're on a arm device
 
-``./install-local.sh 64`` if you're on a a64 or arm64 device
+``sh ./install-local.sh 64`` if you're on a a64 or arm64 device
 
 ## Manually
 Set the following properties using setprop
