@@ -18,9 +18,7 @@
 language: bash
 
 script:
-  - cd VoLTE-Fix
-  - bash scripts/build_magisk.sh
-  - find .
+  - bash scripts/build-magisk.sh
   
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
