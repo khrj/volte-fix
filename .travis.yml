@@ -24,7 +24,7 @@ script:
   
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh $TRAVIS_BUILD_DIR/../td/tdlib/lib/libtdjson.dylib; fi
+  - bash upload.sh $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix.zip; fi
 
 branches:
   except:
