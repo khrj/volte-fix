@@ -15,10 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with VoLTE-Fix.  If not, see <https://www.gnu.org/licenses/>.
 
-remount; mount -o remount,rw /; mount -o remount,rw /system
-mv "$1"/binder${2}/ims /system/priv-app/
-setprop persist.dbg.allow_ims_off 1
-setprop persist.dbg.volte_avail_ovr 1
-setprop persist.dbg.vt_avail_ovr 1
-setprop persist.dbg.wfc_avail_ovr 1
-setprop persist.sys.phh.ims.caf true
+scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
+
+cp -rf $scriptdir/../Magisk/ $scriptdir/../Magisk-temp/
+mkdir -p $scriptdir/../Magisk-temp/system/priv-app/
+cp -rf $scriptdir/../binder64/ims/ $scriptdir/../Magisk-temp/system/priv-app/
+wget -O $scriptdir/../Magisk-temp/META-INF/com/google/android/update-binary https://raw.githubusercontent.com/topjohnwu/Magisk/master/scripts/module_installer.sh
+zip -0 -r $scriptdir/../GSI-Qualcomm-VoLTE-Fix.zip $scriptdir/../Magisk-temp/system/ $scriptdir/../Magisk-temp/META-INF/ $scriptdir/../Magisk-temp/module.prop $scriptdir/../Magisk-temp/system.prop -x "*.DS_Store"
+rm -rf $scriptdir/../Magisk-temp/
