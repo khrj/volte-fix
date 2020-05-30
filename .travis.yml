@@ -1,0 +1,29 @@
+# Copyright 2020 Khushraj Rathod
+#
+# This file is part of VoLTE-Fix.
+#
+# VoLTE-Fix is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# VoLTE-Fix is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with VoLTE-Fix.  If not, see <https://www.gnu.org/licenses/>.
+
+language: bash
+
+script:
+  - bash scripts/build_magisk.sh
+
+after_success:
+  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+  - bash upload.sh $TRAVIS_BUILD_DIR/../td/tdlib/lib/libtdjson.dylib; fi
+
+branches:
+  except:
+    - /^(?i:continuous.*)$/
