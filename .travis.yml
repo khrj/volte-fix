@@ -19,10 +19,10 @@ language: bash
 
 script:
   - bash scripts/build-magisk.sh
-  
+
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix.zip
+  - bash upload.sh $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix-binder-64.zip $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix-binder-32.zip
 
 branches:
   except:

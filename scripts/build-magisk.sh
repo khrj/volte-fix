@@ -19,7 +19,16 @@ scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
 
 cp -rf $scriptdir/../Magisk/ $scriptdir/../Magisk-temp/
 mkdir -p $scriptdir/../Magisk-temp/system/priv-app/
-cp -rf $scriptdir/../binder64/ims/ $scriptdir/../Magisk-temp/system/priv-app/
 wget -O $scriptdir/../Magisk-temp/META-INF/com/google/android/update-binary https://raw.githubusercontent.com/topjohnwu/Magisk/master/scripts/module_installer.sh
-zip -0 -r $scriptdir/../GSI-Qualcomm-VoLTE-Fix.zip $scriptdir/../Magisk-temp/system/ $scriptdir/../Magisk-temp/META-INF/ $scriptdir/../Magisk-temp/module.prop $scriptdir/../Magisk-temp/system.prop -x "*.DS_Store"
+
+# 64 bit binder
+cp -rf $scriptdir/../binder64/ims/ $scriptdir/../Magisk-temp/system/priv-app/
+zip -0 -r $scriptdir/../GSI-Qualcomm-VoLTE-Fix-binder-64.zip $scriptdir/../Magisk-temp/system/ $scriptdir/../Magisk-temp/META-INF/ $scriptdir/../Magisk-temp/module.prop $scriptdir/../Magisk-temp/system.prop -x "*.DS_Store"
+
+rm -rf $scriptdir/../Magisk-temp/system/priv-app/ims/
+
+# 32 bit binder
+cp -rf $scriptdir/../binder32/ims/ $scriptdir/../Magisk-temp/system/priv-app/
+zip -0 -r $scriptdir/../GSI-Qualcomm-VoLTE-Fix-binder-32.zip $scriptdir/../Magisk-temp/system/ $scriptdir/../Magisk-temp/META-INF/ $scriptdir/../Magisk-temp/module.prop $scriptdir/../Magisk-temp/system.prop -x "*.DS_Store"
+
 rm -rf $scriptdir/../Magisk-temp/
