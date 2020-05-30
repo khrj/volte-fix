@@ -18,8 +18,10 @@
 language: bash
 
 script:
+  - cd VoLTE-Fix
   - bash scripts/build_magisk.sh
-
+  - find .
+  
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - bash upload.sh $TRAVIS_BUILD_DIR/../td/tdlib/lib/libtdjson.dylib; fi
