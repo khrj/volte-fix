@@ -23,12 +23,12 @@ wget -O $scriptdir/../Magisk-temp/META-INF/com/google/android/update-binary http
 
 # 64 bit binder
 cp -rf $scriptdir/../binder64/ims/ $scriptdir/../Magisk-temp/system/priv-app/
-zip -0 -r $scriptdir/../GSI-Qualcomm-VoLTE-Fix-binder-64.zip $scriptdir/../Magisk-temp/system/ $scriptdir/../Magisk-temp/META-INF/ $scriptdir/../Magisk-temp/module.prop $scriptdir/../Magisk-temp/system.prop -x "*.DS_Store"
+zip -0ry -x "*.DS_Store" $scriptdir/../GSI-Qualcomm-VoLTE-Fix-binder-64.zip $scriptdir/../Magisk-temp/*
 
 rm -rf $scriptdir/../Magisk-temp/system/priv-app/ims/
 
 # 32 bit binder
 cp -rf $scriptdir/../binder32/ims/ $scriptdir/../Magisk-temp/system/priv-app/
-zip -0 -r $scriptdir/../GSI-Qualcomm-VoLTE-Fix-binder-32.zip $scriptdir/../Magisk-temp/system/ $scriptdir/../Magisk-temp/META-INF/ $scriptdir/../Magisk-temp/module.prop $scriptdir/../Magisk-temp/system.prop -x "*.DS_Store"
+zip -0ry -x "*.DS_Store" $scriptdir/../GSI-Qualcomm-VoLTE-Fix-binder-32.zip $scriptdir/../Magisk-temp/*
 
 rm -rf $scriptdir/../Magisk-temp/
