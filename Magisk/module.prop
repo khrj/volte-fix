@@ -1,6 +1,6 @@
 id=GSI-Qualcomm-VoLTE-Fix
 name=GSI Qualcomm VoLTE Fix
-version=1
+version=v1.0.0
 versionCode=1
 author=Khushraj Rathod
 description=Fixes VoLTE on qualcomm devices running any GSI by adding an IMS apk
