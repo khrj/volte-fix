@@ -21,7 +21,7 @@ script:
   - bash scripts/build-flashable.sh
 
 after_success:
-  - export UPLOADTOOL_BODY="THIS IS BROKEN. These are flashable zips, they can be installed via TWRP\nTravis CI build log - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID/"
+  - export UPLOADTOOL_BODY="These are flashable zips, they can be installed via TWRP\nTravis CI build log - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID/"
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - bash upload.sh $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix-binder-64.zip $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix-binder-32.zip
 
