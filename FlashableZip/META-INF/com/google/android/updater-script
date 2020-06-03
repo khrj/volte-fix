@@ -11,6 +11,7 @@ package_extract_dir("system", "/system");
 
 ui_print("Extracting persistprop binary...");
 package_extract_file("persistprop", "/tmp/");
+set_perm("root", "root", "0755", "/tmp/persistprop");
 
 ui_print("Setting props...");
 run_program("/tmp/persistprop", "persist.dbg.allow_ims_off 1");
