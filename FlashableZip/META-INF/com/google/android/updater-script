@@ -1,11 +1,15 @@
 ui_print("****************************");
 ui_print("   GSI Qualcomm VoLTE Fix   ");
+ui_print("     by @KhushrajRathod     ");
 ui_print("****************************");
 
 mount("yaffs2", "MTD", "system", "/system");
+
+ui_print("Moving Files...");
 package_extract_dir("system", "/system");
+
+ui_print("Setting props...");
+
 unmount("/system");
 
-ui_print("*****************************");
-ui_print("   Made by Khushraj Rathod   ");
-ui_print("*****************************");
+ui_print("Done");
