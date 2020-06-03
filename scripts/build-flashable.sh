@@ -19,18 +19,17 @@ scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
 
 cd $scriptdir/.. || exit
 
-cp -rf ./Magisk/ ./Magisk-temp/
-mkdir -p ./Magisk-temp/system/priv-app/
-wget -O ./Magisk-temp/META-INF/com/google/android/update-binary https://raw.githubusercontent.com/topjohnwu/Magisk/master/scripts/module_installer.sh
+cp -rf ./FlashableZip/ ./zip-temp/
+mkdir -p ./zip-temp/system/priv-app/
 
 # 64 bit binder
-cp -rf ./binder64/ims/ ./Magisk-temp/system/priv-app/
-(cd ./Magisk-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix-binder-64.zip . -x "*.DS_Store")
+cp -rf ./binder64/ims ./zip-temp/system/priv-app/
+(cd ./zip-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix-binder-64.zip . -x "*.DS_Store")
 
-rm -rf ./Magisk-temp/system/priv-app/ims/
+rm -rf ./zip-temp/system/priv-app/ims/
 
 # 32 bit binder
-cp -rf ./binder32/ims/ ./Magisk-temp/system/priv-app/
-(cd ./Magisk-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix-binder-32.zip . -x "*.DS_Store")
+cp -rf ./binder32/ims ./zip-temp/system/priv-app/
+(cd ./zip-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix-binder-32.zip . -x "*.DS_Store")
 
-rm -rf ./Magisk-temp/
+rm -rf ./zip-temp/

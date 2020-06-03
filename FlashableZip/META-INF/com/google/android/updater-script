@@ -1,0 +1,18 @@
+ui_print("****************************");
+ui_print("   GSI Qualcomm VoLTE Fix   ");
+ui_print("****************************");
+
+mount("yaffs2", "MTD", "system", "/system");
+package_extract_dir("system", "/system");
+unmount("/system");
+
+setprop("persist.dbg.allow_ims_off", "1");
+setprop("persist.dbg.volte_avail_ovr", "1");
+setprop("persist.dbg.vt_avail_ovr", "1");
+setprop("persist.dbg.wfc_avail_ovr", "1");
+setprop("persist.sys.phh.ims.caf", "true");
+
+
+ui_print("*****************************");
+ui_print("   Made by Khushraj Rathod   ");
+ui_print("*****************************");
