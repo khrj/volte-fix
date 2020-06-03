@@ -4,7 +4,7 @@ ui_print("     by @KhushrajRathod     ");
 ui_print("****************************");
 
 ui_print("Mounting system...");
-run_program("sh", "-c 'mount /system; mount /system_root'")
+run_program("sh", "-c 'mount /system; mount /system_root'");
 
 ui_print("Moving Files...");
 package_extract_dir("system", "/system");
