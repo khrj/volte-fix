@@ -9,11 +9,11 @@ ui_print("Moving Files...");
 package_extract_dir("system", "/system");
 
 ui_print("Setting props...");
-run_program("/sbin/setprop", "persist.dbg.allow_ims_off", "1")
-run_program("/sbin/setprop", "persist.dbg.volte_avail_ovr", "1")
-run_program("/sbin/setprop", "persist.dbg.vt_avail_ovr", "1")
-run_program("/sbin/setprop", "persist.dbg.wfc_avail_ovr", "1")
-run_program("/sbin/setprop", "persist.sys.phh.ims.caf", "true")
+run_program("/sbin/setprop", "persist.dbg.allow_ims_off 1")
+run_program("/sbin/setprop", "persist.dbg.volte_avail_ovr 1")
+run_program("/sbin/setprop", "persist.dbg.vt_avail_ovr 1")
+run_program("/sbin/setprop", "persist.dbg.wfc_avail_ovr 1")
+run_program("/sbin/setprop", "persist.sys.phh.ims.caf true")
 
 unmount("/system");
 
