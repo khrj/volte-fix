@@ -36,8 +36,8 @@ ui_print "   GSI Qualcomm VoLTE Fix   "
 ui_print "     by @KhushrajRathod     "
 ui_print "****************************"
 
-# Mount system
-mount /system; mount /system_root
+ui_print "Mounting system..."
+mount /system; mount /system_root; mount /system_root/system /system
 
 ui_print "Moving Files..."
 package_extract_dir "system" "/system"
