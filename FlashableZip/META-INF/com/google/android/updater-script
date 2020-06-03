@@ -3,7 +3,8 @@ ui_print("   GSI Qualcomm VoLTE Fix   ");
 ui_print("     by @KhushrajRathod     ");
 ui_print("****************************");
 
-mount("yaffs2", "MTD", "system", "/system");
+ui_print("Mounting system...");
+run_program("sh", "-c 'mount /system; mount /system_root'")
 
 ui_print("Moving Files...");
 package_extract_dir("system", "/system");
@@ -18,6 +19,7 @@ run_program("/tmp/persistprop", "persist.dbg.vt_avail_ovr 1")
 run_program("/tmp/persistprop", "persist.dbg.wfc_avail_ovr 1")
 run_program("/tmp/persistprop", "persist.sys.phh.ims.caf true")
 
+ui_print("Unmounting system...");
 unmount("/system");
 
 ui_print("Done!");
