@@ -11,10 +11,9 @@ Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and downl
 Then simply flash using any custom recovery such as TWRP
 
 ## 2. Using the Installer Scripts
-### Via adb
-> Note: If you're not rooted, boot into TWRP, and mount system as r/w
+> Note: If you're not rooted or are using magisk (that's systemless so it doesn't work), boot into TWRP, and mount system as r/w
 
-Run ``bash ./install-adb.sh``
+Run ``bash ./install.sh``
 
 ## 3. Manually
 Set the following properties using setprop
