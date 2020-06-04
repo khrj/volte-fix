@@ -1,39 +1,26 @@
 # VoLTE-Fix
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
-# Usage
+# Ways to install
 
 > Note: No matter what method you use, if you want to use VoLTE in a GSI that's based on any version older than AOSP v216, you'll also have to push the android.hardware.telephony.ims.xml to /system/etc/permissions
 
-## Using the flashable zips
+## 1. Using the flashable zip (Simplest)
 
-Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the
-
-- binder 64 zip if you're on an a64 or arm64 device.
-
-- binder 32 zip if you're on an arm device.
-
+Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the zip.
 Then simply flash using any custom recovery such as TWRP
 
-## Using the Installer Scripts
+## 2. Using the Installer Scripts
 ### Via adb
 > Note: If you're not rooted, boot into TWRP, and mount system as r/w
 
-Run
-
-``sh ./install-adb.sh 32`` if you're on a arm device
-
-``sh ./install-adb.sh 64`` if you're on a a64 or arm64 device
+Run ``bash ./install-adb.sh``
 
 ### Locally on a terminal emulator (untested)
 
-Run
+Run ``sh ./install-local.sh``
 
-``sh ./install-local.sh 32`` if you're on a arm device
-
-``sh ./install-local.sh 64`` if you're on a a64 or arm64 device
-
-## Manually
+## 3. Manually
 Set the following properties using setprop
 
 - persist.dbg.allow_ims_off to 1
@@ -42,11 +29,11 @@ Set the following properties using setprop
 - persist.dbg.wfc_avail_ovr to 1
 - persist.sys.phh.ims.caf to true
 
-### For a64 or arm64
-Copy the binder64/ims (don't copy the binder64 folder, only the ims folder inside it) folder to /system/priv-app
+### For a 64 bit device (arm64)
+Copy the 64bit/ims (don't copy the 64bit folder, only the ims folder inside it) folder to /system/priv-app
 
-### For arm
-Copy the binder32/ims (don't copy the binder32 folder, only the ims folder inside it) folder to /system/priv-app
+### For a 32 bit device (arm & a64)
+Copy the 32bit/ims (don't copy the 32bit folder, only the ims folder inside it) folder to /system/priv-app
 
 # For dummies
 

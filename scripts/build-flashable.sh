@@ -20,16 +20,11 @@ scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
 cd $scriptdir/.. || exit
 
 cp -rf ./FlashableZip/ ./zip-temp/
-mkdir -p ./zip-temp/system/priv-app/
+mkdir -p ./zip-temp/system64/priv-app/
+mkdir -p ./zip-temp/system32/priv-app/
 
-# 64 bit binder
-cp -rf ./binder64/ims ./zip-temp/system/priv-app/
-(cd ./zip-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix-binder-64.zip . -x "*.DS_Store")
-
-rm -rf ./zip-temp/system/priv-app/ims/
-
-# 32 bit binder
-cp -rf ./binder32/ims ./zip-temp/system/priv-app/
-(cd ./zip-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix-binder-32.zip . -x "*.DS_Store")
+cp -rf ./64bit/ims ./zip-temp/system64/priv-app/
+cp -rf ./32bit/ims ./zip-temp/system32/priv-app/
+(cd ./zip-temp && zip -0ry ../GSI-Qualcomm-VoLTE-Fix.zip . -x "*.DS_Store")
 
 rm -rf ./zip-temp/

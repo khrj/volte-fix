@@ -16,7 +16,18 @@
 # along with VoLTE-Fix.  If not, see <https://www.gnu.org/licenses/>.
 
 remount; mount -o remount,rw /; mount -o remount,rw /system
-mv "$1"/binder${2}/ims /system/priv-app/
+
+if [ $(getprop ro.product.cpu.abi) == "arm64-v8a" ]; then
+  echo "Detected 64bit architecture"
+  mv "$1"/64bit/ims /system/priv-app/
+elif [[ $(getprop ro.product.cpu.abi) == "armeabi-v7a" ]]; then
+  echo "Detected 32bit architecture"
+  mv "$1"/32bit/ims /system/priv-app/
+else
+  echo "ERROR: Unknown architecture"
+  exit 1
+fi
+
 setprop persist.dbg.allow_ims_off 1
 setprop persist.dbg.volte_avail_ovr 1
 setprop persist.dbg.vt_avail_ovr 1

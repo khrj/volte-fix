@@ -16,14 +16,8 @@
 # You should have received a copy of the GNU General Public License
 # along with VoLTE-Fix.  If not, see <https://www.gnu.org/licenses/>.
 
-if [ "$1" != "32" ] && [ "$1" != "64" ]
-then
-	echo "Usage: ./install-local.sh (32|64)"
-	exit 1
-fi
-
 scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
-su -c "sh $scriptdir/scripts/setprops-pushapks.sh $scriptdir $1"
+su -c "sh $scriptdir/scripts/setprops-pushapks.sh $scriptdir"
 am broadcast android.intent.action.ACTION_SHUTDOWN
 sleep 5
 reboot
