@@ -1,16 +1,17 @@
 # VoLTE-Fix
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
+> Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README 
 # Ways to install
 
 > Note: No matter what method you use, if you want to use VoLTE in a GSI that's based on any version older than AOSP v216, you'll also have to push the android.hardware.telephony.ims.xml to /system/etc/permissions
 
 ## 1. Using the flashable zip (Simplest)
 
-Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the zip.
+Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the installer zip.
 Then simply flash using any custom recovery such as TWRP
 
-## 2. Using the Installer Scripts
+## 2. Using the Installer Script
 > Note: If you're not rooted or are using magisk (that's systemless so it doesn't work), boot into TWRP, and mount system as r/w
 
 Run ``bash ./install.sh``
@@ -29,6 +30,29 @@ Copy the 64bit/ims (don't copy the 64bit folder, only the ims folder inside it) 
 
 ### For a 32 bit device (arm & a64)
 Copy the 32bit/ims (don't copy the 32bit folder, only the ims folder inside it) folder to /system/priv-app
+
+# Ways to uninstall
+
+## 1. Using the flashable zip (Simplest)
+
+Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the uninstaller zip.
+Then simply flash using any custom recovery such as TWRP
+
+## 2. Using the Uninstaller Script
+> Note: If you're not rooted or are using magisk (that's systemless so it doesn't work), boot into TWRP, and mount system as r/w
+
+Run ``bash ./uninstall.sh``
+
+## 3. Manually
+Set the following properties using setprop
+
+- persist.dbg.allow_ims_off to 0
+- persist.dbg.volte_avail_ovr to 0
+- persist.dbg.vt_avail_ovr to 0
+- persist.dbg.wfc_avail_ovr to 0
+- persist.sys.phh.ims.caf to false
+
+Remove the ims folder from /system/priv-app/
 
 # For dummies
 
