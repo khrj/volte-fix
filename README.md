@@ -16,10 +16,6 @@ Then simply flash using any custom recovery such as TWRP
 
 Run ``bash ./install-adb.sh``
 
-### Locally on a terminal emulator (untested)
-
-Run ``sh ./install-local.sh``
-
 ## 3. Manually
 Set the following properties using setprop
 
