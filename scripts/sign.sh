@@ -15,12 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with VoLTE-Fix.  If not, see <https://www.gnu.org/licenses/>.
 
-LD_LIBRARY_PATH=../signapk/ java -jar ../signapk/signapk.jar -a 4096\
-  ../signapk/platform.x509.pem \
-  ../signapk/platform.pk8 \
-  ../binder64/ims/ims/dist/ims.apk ../binder64/ims/ims.apk
+scriptdir=$(cd ./"$(dirname "$0")"/ || exit; pwd)
 
-LD_LIBRARY_PATH=../signapk/ java -jar ../signapk/signapk.jar -a 4096\
-  ../signapk/platform.x509.pem \
-  ../signapk/platform.pk8 \
-  ../binder32/ims/ims/dist/ims.apk ../binder32/ims/ims.apk
+LD_LIBRARY_PATH="${scriptdir}"/../signapk/ java -jar "${scriptdir}"/../signapk/signapk.jar -a 4096\
+  "${scriptdir}"/../signapk/platform.x509.pem \
+  "${scriptdir}"/../signapk/platform.pk8 \
+  "${scriptdir}"/../64bit/ims/ims/dist/ims.apk "${scriptdir}"/../64bit/ims/ims.apk
+
+LD_LIBRARY_PATH="${scriptdir}"/../signapk/ java -jar "${scriptdir}"/../signapk/signapk.jar -a 4096\
+  "${scriptdir}"/../signapk/platform.x509.pem \
+  "${scriptdir}"/../signapk/platform.pk8 \
+  "${scriptdir}"/../32bit/ims/ims/dist/ims.apk "${scriptdir}"/../32bit/ims/ims.apk

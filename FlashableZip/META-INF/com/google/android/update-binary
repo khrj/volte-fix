@@ -14,9 +14,6 @@ ui_print() {
   done;
 }
 
-# unmount <partition>
-unmount() { umount "$1"; }
-
 # package_extract_file <file> <destination_file>
 package_extract_file() { mkdir -p "$(dirname "$2")"; unzip -o "$ZIPFILE" "$1" -p > "$2"; }
 
@@ -30,6 +27,9 @@ package_extract_dir() {
   done;
 }
 
+# getprop <property>
+getprop() { test -e /sbin/getprop && /sbin/getprop $1 || grep "^$1=" /default.prop | cut -d= -f2-; }
+
 ui_print "****************************"
 ui_print "   GSI Qualcomm VoLTE Fix   "
 ui_print "     by @KhushrajRathod     "
@@ -39,7 +39,17 @@ ui_print "Mounting system..."
 mount /system; mount /system_root; mount /system_root/system /system
 
 ui_print "Moving Files..."
-package_extract_dir "system" "/system"
+
+if [ $(getprop ro.product.cpu.abi) == "arm64-v8a" ]; then
+  ui_print "Detected 64bit architecture"
+  package_extract_dir "system64" "/system"
+elif [[ $(getprop ro.product.cpu.abi) == "armeabi-v7a" ]]; then
+  ui_print "Detected 32bit architecture"
+  package_extract_dir "system32" "/system"
+else
+  ui_print "ERROR: Unknown architecture"
+  exit 1
+fi
 
 ui_print "Extracting persistprop binary..."
 package_extract_file "persistprop" "/tmp/"
