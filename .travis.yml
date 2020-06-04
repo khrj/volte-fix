@@ -21,9 +21,9 @@ script:
   - bash scripts/build-flashable.sh
 
 after_success:
-  - export UPLOADTOOL_BODY="This is a flashable zip, it can be installed via TWRP\nTravis CI build log - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID/"
+  - export UPLOADTOOL_BODY="These are flashable zips, they can be installed via TWRP\nTravis CI build log - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID/"
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix.zip
+  - bash upload.sh $TRAVIS_BUILD_DIR/GSI-Qualcomm-VoLTE-Fix.zip $TRAVIS_BUILD_DIR/VoLTE-Fix-Uninstaller.zip
 
 branches:
   except:

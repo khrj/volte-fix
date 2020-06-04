@@ -1,0 +1,42 @@
+#!/sbin/sh
+# Template: Shell Script EDIFY Replacement: Recovery Flashable Zip by osm0sis @ xda-developers
+# Can be found here - https://forum.xda-developers.com/android/software-hacking/dev-complete-shell-script-flashable-zip-t2934449/amp/
+
+OUTFD=/proc/self/fd/$2;
+
+# ui_print "<message>" ["<message 2>" ...]
+ui_print() {
+  while [ "$1" ]; do
+    echo -e "ui_print $1
+      ui_print" >> "$OUTFD";
+    shift;
+  done;
+}
+
+# package_extract_file <file> <destination_file>
+package_extract_file() { mkdir -p "$(dirname "$2")"; unzip -o "$ZIPFILE" "$1" -p > "$2"; }
+
+ui_print "****************************"
+ui_print "        Uninstalling        "
+ui_print "   GSI Qualcomm VoLTE Fix   "
+ui_print "     by @KhushrajRathod     "
+ui_print "****************************"
+
+ui_print "Mounting system..."
+mount /system; mount /system_root; mount /system_root/system /system
+
+ui_print "Removing Files..."
+rm -rf /system/priv-app/ims
+
+ui_print "Extracting persistprop binary..."
+package_extract_file "persistprop" "/tmp/"
+chmod 0755 /tmp/persistprop
+
+ui_print "Resetting props..."
+/tmp/persistprop persist.dbg.allow_ims_off 0
+/tmp/persistprop persist.dbg.volte_avail_ovr 0
+/tmp/persistprop persist.dbg.vt_avail_ovr 0
+/tmp/persistprop persist.dbg.wfc_avail_ovr 0
+/tmp/persistprop persist.sys.phh.ims.caf false
+
+ui_print "Done!"
