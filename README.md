@@ -14,7 +14,7 @@ Then simply flash using any custom recovery such as TWRP
 ## 2. Using the Installer Script
 > Note: If you're not rooted or are using magisk (that's systemless so it doesn't work), boot into TWRP, and mount system as r/w
 
-Run ``bash ./install.sh`` (uses adb, script needs to be run on the computer)
+Run ``bash ./install.sh`` (uses adb, script needs to be run on a computer)
 
 ## 3. Manually
 Set the following properties using setprop
