@@ -7,6 +7,9 @@ assignees: KhushrajRathod
 
 ---
 
+- [ ] I'm using a device with a Qualcomm processor
+- [ ] I'm using a non-samsung device
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
