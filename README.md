@@ -73,5 +73,3 @@ Remove the ims folder from /system/priv-app/
 - [What is adb?](https://www.xda-developers.com/what-is-adb/)
 - Where should I download adb and fastboot without downloading the entire android sdk? Downloads: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip) (These links are maintained by google, you should always get the latest versions)
 - How do I download this repository? Use the download button above or just click [here](https://github.com/KhushrajRathod/VoLTE-Fix/archive/master.zip).
-- How do I install the apks? You need to run the Installer script that applies to you, read above. See how to run a shell script on [windows](https://www.thewindowsclub.com/how-to-run-sh-or-shell-script-file-in-windows-10), [macOS/Linux](https://askubuntu.com/a/38670)
-- Do I have an arm, a64 or arm64 device? Check using [Treble Info](https://play.google.com/store/apps/details?id=tk.hack5.treblecheck)
