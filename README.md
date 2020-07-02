@@ -11,6 +11,20 @@ Fixes Qualcomm VoLTE on all GSI Treble Roms
 Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the installer zip.
 Then simply flash using any custom recovery such as TWRP
 
+### Note:
+
+If your Recovery cannot decrypt data, then you need to have root access. Set props manually using
+
+```
+setprop persist.dbg.allow_ims_off 1
+setprop persist.dbg.volte_avail_ovr 1
+setprop persist.dbg.vt_avail_ovr 1
+setprop persist.dbg.wfc_avail_ovr 1
+setprop persist.sys.phh.ims.caf true
+```
+
+**AFTER** booting into system
+
 ## 2. Using the Installer Script
 > Note: If you're not rooted or are using magisk (that's systemless so it doesn't work), boot into TWRP, and mount system as r/w
 
