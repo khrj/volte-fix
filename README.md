@@ -1,7 +1,9 @@
 # VoLTE-Fix
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
-> Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README 
+> Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README
+
+Featured on [XDA](https://www.xda-developers.com/how-to-enable-volte-qualcomm-devices-running-generic-system-images-gsis/)
 # Ways to install
 
 > Note: No matter what method you use, if you want to use VoLTE in a GSI that's based on any version older than AOSP v216, you'll also have to push the android.hardware.telephony.ims.xml to /system/etc/permissions
