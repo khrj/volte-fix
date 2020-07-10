@@ -2,12 +2,28 @@
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
 > Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README
+
+Featured on [XDA](https://www.xda-developers.com/how-to-enable-volte-qualcomm-devices-running-generic-system-images-gsis/)
 # Ways to install
 
 ## 1. Using the flashable zip (Simplest)
 
 Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the installer zip.
 Then simply flash using any custom recovery such as TWRP
+
+### Note:
+
+If your Recovery cannot decrypt data, then you need to have root access. Set props manually using
+
+```
+setprop persist.dbg.allow_ims_off 1
+setprop persist.dbg.volte_avail_ovr 1
+setprop persist.dbg.vt_avail_ovr 1
+setprop persist.dbg.wfc_avail_ovr 1
+setprop persist.sys.phh.ims.caf true
+```
+
+**AFTER** booting into system
 
 ## 2. Using the Installer Script
 > Note: If you're not rooted or are using magisk (that's systemless so it doesn't work), boot into TWRP, and mount system as r/w
@@ -60,5 +76,3 @@ Remove the ims folder from /system/priv-app/
 - [What is adb?](https://www.xda-developers.com/what-is-adb/)
 - Where should I download adb and fastboot without downloading the entire android sdk? Downloads: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip) (These links are maintained by google, you should always get the latest versions)
 - How do I download this repository? Use the download button above or just click [here](https://github.com/KhushrajRathod/VoLTE-Fix/archive/master.zip).
-- How do I install the apks? You need to run the Installer script that applies to you, read above. See how to run a shell script on [windows](https://www.thewindowsclub.com/how-to-run-sh-or-shell-script-file-in-windows-10), [macOS/Linux](https://askubuntu.com/a/38670)
-- Do I have an arm, a64 or arm64 device? Check using [Treble Info](https://play.google.com/store/apps/details?id=tk.hack5.treblecheck)
