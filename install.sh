@@ -31,6 +31,11 @@ else
 		exit 1
 fi
 
+if ! adb shell ls /system/etc/permissions/android.hardware.telephony.ims.xml 1> /dev/null 2>&1; then
+  adb push "$scriptdir"/android.hardware.telephony.ims.xml /system/etc/permissions/
+else
+
+
 adb shell setprop persist.dbg.allow_ims_off 1
 adb shell setprop persist.dbg.volte_avail_ovr 1
 adb shell setprop persist.dbg.vt_avail_ovr 1

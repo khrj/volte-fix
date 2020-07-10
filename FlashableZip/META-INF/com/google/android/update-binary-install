@@ -51,6 +51,11 @@ else
   exit 1
 fi
 
+if [ ! -f "/system/etc/permissions/android.hardware.telephony.ims.xml" ]; then
+    ui_print "Moving android.hardware.telephony.ims.xml"
+    package_extract_file "android.hardware.telephony.ims.xml" "/system/etc/permissions/android.hardware.telephony.ims.xml"
+fi
+
 ui_print "Extracting persistprop binary..."
 package_extract_file "persistprop" "/tmp/"
 chmod 0755 /tmp/persistprop

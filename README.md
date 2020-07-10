@@ -1,10 +1,8 @@
 # VoLTE-Fix
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
-> Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README 
+> Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README
 # Ways to install
-
-> Note: No matter what method you use, if you want to use VoLTE in a GSI that's based on any version older than AOSP v216, you'll also have to push the android.hardware.telephony.ims.xml to /system/etc/permissions
 
 ## 1. Using the flashable zip (Simplest)
 
@@ -17,6 +15,9 @@ Then simply flash using any custom recovery such as TWRP
 Run ``bash ./install.sh`` (uses adb, script needs to be run on a computer)
 
 ## 3. Manually
+Push the ims folder found inside the 32bit / 64bit folder
+> Note: If you're using a version older than AOSP v216, you'll also have to push the android.hardware.telephony.ims.xml to /system/etc/permissions. The script and the zip will automatically add it for you
+
 Set the following properties using setprop
 
 - persist.dbg.allow_ims_off to 1
