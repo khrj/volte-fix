@@ -41,6 +41,7 @@ adb shell setprop persist.dbg.volte_avail_ovr 1
 adb shell setprop persist.dbg.vt_avail_ovr 1
 adb shell setprop persist.dbg.wfc_avail_ovr 1
 adb shell setprop persist.sys.phh.ims.caf true
+fi
 
 read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/n)?" -n 1 -r
 echo
