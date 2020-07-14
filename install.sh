@@ -25,26 +25,25 @@ adb remount
 if adb shell getprop ro.product.cpu.abi | grep -q 'arm64-v8a'; then
     adb push "$scriptdir"/64bit/ims /system/priv-app/
 elif adb shell getprop ro.product.cpu.abi | grep -q 'armeabi-v7a'; then
-	  adb push "$scriptdir"/32bit/ims /system/priv-app/
+    adb push "$scriptdir"/32bit/ims /system/priv-app/
 else
-	  echo "Unknown architecture"
-		exit 1
+    echo "Unknown architecture"
+    exit 1
 fi
 
 if ! adb shell ls /system/etc/permissions/android.hardware.telephony.ims.xml 1> /dev/null 2>&1; then
-  adb push "$scriptdir"/android.hardware.telephony.ims.xml /system/etc/permissions/
-else
-
+    adb push "$scriptdir"/android.hardware.telephony.ims.xml /system/etc/permissions/
+fi
 
 adb shell setprop persist.dbg.allow_ims_off 1
 adb shell setprop persist.dbg.volte_avail_ovr 1
 adb shell setprop persist.dbg.vt_avail_ovr 1
 adb shell setprop persist.dbg.wfc_avail_ovr 1
 adb shell setprop persist.sys.phh.ims.caf true
-fi
 
 read -p "A reboot is required to enable VoLTE. Would you like to reboot now? (y/n)?" -n 1 -r
 echo
+
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	adb reboot &
