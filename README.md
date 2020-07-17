@@ -4,6 +4,12 @@ Fixes Qualcomm VoLTE on all GSI Treble Roms
 > Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README
 
 Featured on [XDA](https://www.xda-developers.com/how-to-enable-volte-qualcomm-devices-running-generic-system-images-gsis/)
+
+Thanks to:
+
+- @phhusson for APK build script (and GSI of course)
+- @sooti for 64bit APK
+
 # Ways to install
 
 ## 1. Using the flashable zip (Simplest)
