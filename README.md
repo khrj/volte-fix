@@ -1,4 +1,4 @@
-# VoLTE-Fix
+# VoLTE Fix
 Fixes Qualcomm VoLTE on all GSI Treble Roms
 
 > Important: Before you open an issue / ask how to do something, read the for dummies section at the bottom of the README
@@ -14,7 +14,7 @@ Thanks to:
 
 ## 1. Using the flashable zip (Simplest)
 
-Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the installer zip.
+Go to [releases](https://github.com/khrj/volte-fix/releases) and download the installer zip.
 Then simply flash using any custom recovery such as TWRP
 
 ### Note:
@@ -58,7 +58,7 @@ Copy the 32bit/ims (don't copy the 32bit folder, only the ims folder inside it) 
 
 ## 1. Using the flashable zip (Simplest)
 
-Go to [releases](https://github.com/KhushrajRathod/VoLTE-Fix/releases) and download the uninstaller zip.
+Go to [releases](https://github.com/khrj/volte-fix/releases) and download the uninstaller zip.
 Then simply flash using any custom recovery such as TWRP
 
 ## 2. Using the Uninstaller Script
@@ -81,4 +81,4 @@ Remove the ims folder from /system/priv-app/
 
 - [What is adb?](https://www.xda-developers.com/what-is-adb/)
 - Where should I download adb and fastboot without downloading the entire android sdk? Downloads: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip) (These links are maintained by google, you should always get the latest versions)
-- How do I download this repository? Use the download button above or just click [here](https://github.com/KhushrajRathod/VoLTE-Fix/archive/master.zip).
+- How do I download this repository? Use the download button above or just click [here](https://github.com/khrj/volte-fix/archive/master.zip).
